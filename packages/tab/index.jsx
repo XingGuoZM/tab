@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BScroll from '@better-scroll/core';
 import Slide from '@better-scroll/slide';
 import Panel from './Panel';

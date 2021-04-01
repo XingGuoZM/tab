@@ -27,6 +27,7 @@
     "webpack-dev-server": "^3.11.1"
   },
   "dependencies": {
+    "hello-world": "^1.0.0",
     "tab": "^1.0.0",
     "utils": "^1.0.0"
   }
