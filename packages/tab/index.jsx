@@ -7,7 +7,8 @@ import './index.css';
 BScroll.use(Slide);
 
 function Tab(props) {
-  const { tabNav, tabPanel, data, tabChange } = props;
+  const { tabNav, tabPanel, data, tabChange } = props || {};
+  
   const [index, setIndex] = useState(0);
   useEffect(() => {
     let bs = new BScroll('.tab-panel', {
