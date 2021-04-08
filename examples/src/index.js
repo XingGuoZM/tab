@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Tab from 'tab';
-import HelloWorld from 'hello-world'
+import HelloWorld from 'hello-world';
+import Comp from '@/comp'
 import { viewport } from 'utils';
 const tabNav = {
   activeStyle: { color: 'red' },
@@ -78,5 +79,6 @@ viewport();
 ReactDOM.render(
   // <Tab {...tabProps} />,
   <HelloWorld />,
+  // <Comp />,
   document.querySelector('#root')
 );
