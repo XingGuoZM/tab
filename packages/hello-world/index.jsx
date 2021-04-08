@@ -1,15 +1,10 @@
-// import React from 'react';
-
-// export default () => {
-//   return <div>hello-world</div>
-// }
-
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useEffect, useState } from 'react';
 
 export default () => {
+
   useEffect(() => {
-    console.log(123)
+    console.log('hello-world');
   }, []);
-  return <div>components</div>
+
+  return <div>hello-world</div>
 }
