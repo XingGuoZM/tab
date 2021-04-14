@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component } from 'react';
 
-export default () => {
+export default class HelloWorld extends Component {
 
-  useEffect(() => {
-    console.log('hello-world');
-  }, []);
+  render() {
+    return <div>hello-world</div>
+  }
 
-  return <div>hello-world</div>
 }
