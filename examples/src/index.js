@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import Tab from 'tab';
-import HelloWorld from 'hello-world';
-// import Comp from '@/comp'
 import { viewport } from 'utils';
 const tabNav = {
   activeStyle: { color: 'red' },
@@ -17,7 +15,7 @@ const tabPanel = {
         backgroundColor: '#ddd',
         fontSize: '0.5rem'
       }}>
-      {data.name}
+      {/* {data.name} */}
     </div>;
   },
   endItem: () => <div style={{ fontSize: '0.3rem' }}>到底了</div>
