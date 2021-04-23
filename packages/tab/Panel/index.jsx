@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import './index.css';
 
-export default function Panel(props) {
-  const { data: { id, list }, panelItem, endItem } = props;
-  return <section className='tab-panel-item' key={id}>
-    {panelItem(list)}
-    {endItem()}
-    {/* <div className='tab-panel-loading'>加载中...</div> */}
-    {/* <div className='tab-panel-loading'>到底了~</div> */}
-  </section>
+export default class Panel extends Component {
+  constructor() {
+    super();
+    this.state = {
+
+    }
+  }
+  render() {
+    const { data: { id, list }, panelItem, endItem } = this.props;
+    return <section className='tab-panel-item'>
+      {panelItem(list)}
+      {endItem ? endItem() : <div className='tab-panel-loading'>到底了~</div>}
+    </section>
+  }
 };

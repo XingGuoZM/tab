@@ -1,8 +1,8 @@
-import React,{useEffect,useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import Tab from 'tab';
 import HelloWorld from 'hello-world';
-import Comp from '@/comp'
+// import Comp from '@/comp'
 import { viewport } from 'utils';
 const tabNav = {
   activeStyle: { color: 'red' },
@@ -14,9 +14,10 @@ const tabPanel = {
         width: '7rem',
         height: '3.5rem',
         marginTop: '0.15rem',
-        backgroundColor: '#ddd'
+        backgroundColor: '#ddd',
+        fontSize: '0.5rem'
       }}>
-      {/* {data.name} */}
+      {data.name}
     </div>;
   },
   endItem: () => <div style={{ fontSize: '0.3rem' }}>到底了</div>
@@ -26,22 +27,27 @@ const tabProps = {
     {
       id: 1,
       name: 'tab1',
-      list: [{
-        id: 1,
-        name: 'panel1'
-      }, {
-        id: 2,
-        name: 'panel2'
-      }, {
-        id: 3,
-        name: 'panel3'
-      }, {
-        id: 4,
-        name: 'panel3'
-      }, {
-        id: 5,
-        name: 'panel3'
-      }]
+      list: [
+        {
+          id: 1,
+          name: 'panel1'
+        }, {
+          id: 2,
+          name: 'panel2'
+        }, {
+          id: 3,
+          name: 'panel3'
+        }, {
+          id: 4,
+          name: 'panel3'
+        }, {
+          id: 5,
+          name: 'panel3'
+        }, {
+          id: 6,
+          name: 'panel3'
+        }
+      ]
     },
     {
       id: 2,
@@ -77,8 +83,6 @@ const tabProps = {
 viewport();
 
 ReactDOM.render(
-  // <Tab {...tabProps} />,
-  <HelloWorld />,
-  // <Comp />,
+  <Tab {...tabProps} />,
   document.querySelector('#root')
 );

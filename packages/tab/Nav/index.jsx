@@ -1,37 +1,41 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { Component } from 'react';
 import { throttle } from 'utils'
 import './index.css';
 
-export default function Nav(props) {
-  const { data, navItem, tabNav, index } = props;
-  const [fixStyle, setFixStyle] = useState({});
-  const navRef = useRef();
-
-  useEffect(() => {
-    window.addEventListener('scroll', throttle(() => handleScroll(), 100))
-  }, []);
-  function handleScroll() {
-
-    const { top } = navRef.current.getBoundingClientRect();
-    console.log(top);
-    if (top < 0) {
-      setFixStyle({ position: 'fixed', top: 0 });
-    } else {
-      setFixStyle({ position: 'static' });
+export default class Nav extends Component {
+  constructor() {
+    super();
+    this.navRef = React.createRef();
+    this.state = {
+      fixStyle: null
     }
   }
-  function renderItem() {
-    if (!!tabNav.navItem) {
-      return navItem(data);
+  handleScroll() {
+    const { top } = this.navRef.current.getBoundingClientRect();
+    console.log(top);
+    if (top < 0) {
+      this.setState({ fixStyle: { position: 'fixed', top: 0 } });
+    } else {
+      this.setState({ fixStyle: { position: 'static' } });
     }
-    return data.map((item, i) => <div
+  }
+  componentDidMount() {
+    window.addEventListener('scroll', throttle(() => this.handleScroll(), 100));
+  }
+  renderItem() {
+    const { navItem, tabNav, data } = this.props;
+    if (!!tabNav?.navItem) {
+      return navItem(this.props.data);
+    }
+    return data?.map((item, i) => <div
       key={item.id}
-      className={index === i ? 'tab-nav-active-item' : 'tab-nav-item'}>
+      className={this.props.index === i ? 'tab-nav-active-item' : 'tab-nav-item'}>
       {item.name}
     </div>);
   }
-
-  return <div className="tab-nav" style={fixStyle} ref={navRef}>
-    {renderItem()}
-  </div>
+  render() {
+    return <div className="tab-nav" style={this.state.fixStyle} ref={this.navRef}>
+      {this.renderItem()}
+    </div>
+  }
 }
