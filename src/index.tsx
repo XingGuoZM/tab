@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
-import Tab from 'tab';
-import { viewport } from 'utils';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import Tab from './tab';
+import { viewport } from './utils';
 const tabNav = {
-  activeStyle: { color: 'red' },
+  // activeStyle: { color: 'red' },
+  navItem: (item) => <div key={item.id}>{item.name}</div>
 }
 const tabPanel = {
   panelItem: (data, index) => {
