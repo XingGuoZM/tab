@@ -23,7 +23,7 @@ function Nav({ tabNav: { navItem }, data, index }: NavProps) {
     }
   }
   useEffect(() => {
-    window.addEventListener('scroll', throttle(() => handleScroll(), 100));
+    window.addEventListener('scroll', throttle(() => handleScroll(), 500));
   }, []);
   function renderItem() {
     console.log(data);
