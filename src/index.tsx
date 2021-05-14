@@ -4,7 +4,7 @@ import Tab from './tab';
 import { viewport } from './utils';
 const tabNav = {
   // activeStyle: { color: 'red' },
-  navItem: (item) => <div key={item.id}>{item.name}</div>
+  // navItem: (item) => <div key={item.id}>{item.name}</div>
 }
 const tabPanel = {
   panelItem: (data, index) => {

@@ -19,7 +19,7 @@ function Tab({ tabChange, tabPanel, tabNav, data }: TabProps) {
   useEffect(() => {
     let bs = new BScroll(`.${styles.tabPanel}`, {
       scrollX: true,
-      scrollY: false,
+      scrollY: true,
       slide: {
         autoplay: false,
         loop: false

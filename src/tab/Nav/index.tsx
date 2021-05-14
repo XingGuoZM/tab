@@ -9,24 +9,24 @@ export interface NavProps {
 }
 
 function Nav({ tabNav: { navItem }, data, index }: NavProps) {
-  const { useEffect, useState, useRef } = React;
+  const { useEffect, useRef } = React;
   const navRef = useRef();
-  const [fixStyle, setFixStyle] = useState({});
+  const fixRef = useRef();
   function handleScroll() {
-    const dom: HTMLElement = navRef.current;
-    const { top } = dom.getBoundingClientRect();
-    console.log(top);
+    const fixDom: HTMLElement = fixRef.current;
+    const navDom: HTMLElement = navRef.current;
+    const { top } = fixDom.getBoundingClientRect();
     if (top < 0) {
-      setFixStyle({ position: 'fixed', top: 0 });
+      navDom.style.position = 'fixed';
+      navDom.style.top = '0px';
     } else {
-      setFixStyle({ position: 'static' });
+      navDom.style.position = 'inherit';
     }
   }
   useEffect(() => {
-    window.addEventListener('scroll', throttle(() => handleScroll(), 100));
+    window.addEventListener('scroll', throttle(() => handleScroll(), 60));
   }, []);
   function renderItem() {
-    console.log(data);
     if (!!navItem) {
       return data.map(item => navItem(item));
     }
@@ -36,12 +36,11 @@ function Nav({ tabNav: { navItem }, data, index }: NavProps) {
       {item.name}
     </div>);
   }
-  return <div
-    className={styles.tabNav}
-    style={fixStyle}
-    ref={navRef}
-  >
-    {renderItem()}
+  return <div>
+    <div ref={fixRef} />
+    <div className={styles.tabNav} ref={navRef}>
+      {renderItem()}
+    </div>
   </div>
 }
 
