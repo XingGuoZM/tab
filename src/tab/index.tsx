@@ -15,7 +15,7 @@ export interface TabProps {
 
 function Tab({ tabChange, tabPanel, tabNav, data }: TabProps) {
   const { useEffect, useState } = React;
-  const [index, setIndex] = useState();
+  const [index, setIndex] = useState(0);
   useEffect(() => {
     let bs = new BScroll(`.${styles.tabPanel}`, {
       scrollX: true,
